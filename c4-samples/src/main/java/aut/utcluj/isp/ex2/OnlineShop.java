@@ -7,7 +7,7 @@ public class OnlineShop {
     private String webAddress;
 
     public OnlineShop(String name, String city, String webAddress) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.webAddress = webAddress;
     }
 
     public String getWebAddress() {
