@@ -43,13 +43,6 @@ public class UserCart {
                 check = true;
             }
         }
-        if(check == false){
-            try {
-                throw new ProductNotFoundException();
-            } catch (ProductNotFoundException ex) {
-                Logger.getLogger(UserCart.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
     }
 
     /**
