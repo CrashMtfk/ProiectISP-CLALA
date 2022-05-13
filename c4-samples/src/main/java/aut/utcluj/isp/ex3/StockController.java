@@ -1,5 +1,6 @@
 package aut.utcluj.isp.ex3;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,25 @@ public class StockController  {
      * @return - list of existing products with same id or null if not found
      */
     public List<Product> getProductsWithSameId(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
+        List<Product> productsWithSameId = new ArrayList<>();
+        int found = 0;
+        for(Map.Entry<Product,Integer> p : catalogue.entrySet()){
+            if(p.getKey().getId().equals(productId)){
+                for( int i=0; i < p.getValue() ; i++){
+                    productsWithSameId.add(p.getKey());
+                    found=1;
+                }
+
+            }
+        }
+        if(found==0){
+            return null;
+        }
+        else{
+            return productsWithSameId;
+        }
+
     }
 
     /**
@@ -71,5 +90,28 @@ public class StockController  {
      */
     public boolean updateProductPriceByProductId(final String productId, final Double price) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public int getTotalQuantityOfProd() {
+        return totalQuantityOfProd;
+    }
+
+    public StockController() {
+        super();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
