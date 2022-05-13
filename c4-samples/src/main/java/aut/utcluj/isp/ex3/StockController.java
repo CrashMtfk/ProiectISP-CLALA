@@ -78,7 +78,24 @@ public class StockController  {
      * @return true if at least one product was deleted or false instead
      */
     public boolean removeAllProductsWitProductId(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Product> productsWithSameId = new ArrayList<>();
+        int found = 0;
+        for(Map.Entry<Product,Integer> p : catalogue.entrySet()){
+            if(p.getKey().getId().equals(productId)){
+
+                    catalogue.remove(p);
+                    totalQuantityOfProd = totalQuantityOfProd - p.getValue();
+                    found=1;
+
+
+            }
+        }
+        if(found==0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     /**
