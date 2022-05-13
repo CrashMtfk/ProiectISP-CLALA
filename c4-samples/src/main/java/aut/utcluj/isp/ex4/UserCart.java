@@ -1,6 +1,8 @@
 package aut.utcluj.isp.ex4;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author stefan
@@ -24,7 +26,7 @@ public class UserCart {
      * @param quantity - number of products of the same type to be added
      */
     public void addProductToCart(final Product product, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");   
+        
     }
 
     /**
@@ -34,7 +36,20 @@ public class UserCart {
      * @param productId - unique product id
      */
     public void removeProductFromCart(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean check = false;
+        for(int i = 0; i < cardProducts.size(); i++){
+            if(cardProducts.get(i).getProductId().equals(productId)){
+                cardProducts.remove(i);
+                check = true;
+            }
+        }
+        if(check == false){
+            try {
+                throw new ProductNotFoundException();
+            } catch (ProductNotFoundException ex) {
+                Logger.getLogger(UserCart.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**
