@@ -1,12 +1,13 @@
 package aut.utcluj.isp.ex3;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * @author stefan
  */
-public class StockController {
+public class StockController  {
     /**
      * Add product to catalogue
      *
@@ -14,8 +15,13 @@ public class StockController {
      * @param quantity - number of times the product should be added
      * @apiNote: if products with the same products id already exists, assume that @param product has the same data
      */
+
+    private Map<Product, Integer> catalogue= new HashMap<Product, Integer>();
+     private int totalQuantityOfProd;
+
     public void addProductToCatalogue(final Product product, final int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        catalogue.put(product, quantity);
+        totalQuantityOfProd = totalQuantityOfProd+quantity;
     }
 
     /**
@@ -23,8 +29,8 @@ public class StockController {
      *
      * @return dictionary where the key is the product id and the value is an array of products with the same id
      */
-    public Map<String, List<Product>> getCatalogue() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Map<Product, Integer> getCatalogue() {
+        return catalogue;
     }
 
     /**
@@ -43,7 +49,7 @@ public class StockController {
      * @return
      */
     public int getTotalNumberOfProducts() {
-        throw new UnsupportedOperationException("Not supported yet.");
+       return totalQuantityOfProd;
     }
 
     /**

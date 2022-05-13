@@ -8,8 +8,13 @@ public class Product {
     private String name;
     private Double price;
 
+    public Product() {
+    }
+
     public Product(String id, String name, Double price) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.id = id;
+        this.name = name;
+        this.price = price;
     }
 
     public String getId() {
@@ -22,5 +27,34 @@ public class Product {
 
     public Double getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+
+        Product product = (Product) o;
+
+        if (!getId().equals(product.getId())) return false;
+        if (!getName().equals(product.getName())) return false;
+        return getPrice().equals(product.getPrice());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId().hashCode();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getPrice().hashCode();
+        return result;
     }
 }
