@@ -106,7 +106,23 @@ public class StockController  {
      * @return true if at least one product was updated or false instead
      */
     public boolean updateProductPriceByProductId(final String productId, final Double price) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Product> productsWithSameId = new ArrayList<>();
+        int found = 0;
+        for(Map.Entry<Product,Integer> p : catalogue.entrySet()){
+            if(p.getKey().getId().equals(productId)){
+
+              p.getKey().setPrice(price);
+              found=1;
+
+
+            }
+        }
+        if(found==0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
     public int getTotalQuantityOfProd() {
