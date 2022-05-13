@@ -7,7 +7,12 @@ public class Shop {
     private String name;
     private String city;
 
+
+    public Shop() {
+    }
+
     public Shop(String name, String city) {
+        super();
         this.name = name;
         this.city = city;
     }
@@ -29,9 +34,19 @@ public class Shop {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
+
     public void setCity(String city) {
         this.city = city;
     }
+
+
     
     
 }
