@@ -24,7 +24,7 @@ public class UserCart {
      * @param quantity - number of products of the same type to be added
      */
     public void addProductToCart(final Product product, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported yet.");   
     }
 
     /**
@@ -42,6 +42,9 @@ public class UserCart {
      * Reset products and total price to default values
      */
     public void resetCart() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(cardProducts.size() != 0){
+            cardProducts.clear();
+            totalPrice = 0;
+        }
     }
 }
