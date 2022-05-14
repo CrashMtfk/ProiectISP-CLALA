@@ -21,7 +21,7 @@ public class UserTest {
     }
 
     @Test
-    public void testRemoveProductFromCart() {
+    public void testRemoveProductFromCart() throws ProductNotFoundException {
         final User user = new User(200d);
         user.addProductToCart(new Product("p_1", 100d), 2);
         user.addProductToCart(new Product("p_2", 100d), 1);
@@ -38,7 +38,7 @@ public class UserTest {
     }
 
     @Test(expected = ProductNotFoundException.class)
-    public void testRemoveProductFromCartThrowsExceptionWhenProductNotFound() {
+    public void testRemoveProductFromCartThrowsExceptionWhenProductNotFound() throws ProductNotFoundException {
         final User user = new User(200d);
         user.addProductToCart(new Product("p_1", 100d), 2);
 
@@ -49,7 +49,7 @@ public class UserTest {
     }
 
     @Test
-    public void testSubmitCart() {
+    public void testSubmitCart() throws NotEnoughMoneyException {
         final User user = new User(300d);
         user.addProductToCart(new Product("p_1", 100d), 2);
         user.addProductToCart(new Product("p_2", 100d), 1);
@@ -71,7 +71,7 @@ public class UserTest {
     }
 
     @Test(expected = NotEnoughMoneyException.class)
-    public void testSubmitCartExceptionThrowsExceptionWhenUserDoesNotHaveEnoughMoney() {
+    public void testSubmitCartExceptionThrowsExceptionWhenUserDoesNotHaveEnoughMoney() throws NotEnoughMoneyException {
         final User user = new User(200d);
         user.addProductToCart(new Product("p_1", 100d), 2);
         user.addProductToCart(new Product("p_2", 100d), 1);

@@ -61,6 +61,7 @@ public class UserCart implements ICartDetails {
             if(cartProducts.get(i).getProductId().equals(productId)){
                 cartProducts.remove(i);
                 check = true;
+                //totalPrice = totalPrice - cartProducts.get(i).getPrice();
             }
         }
 
@@ -78,9 +79,18 @@ public class UserCart implements ICartDetails {
     }
 
     @Override
+    public String toString() {
+        return
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
+
+    @Override
     public String getCartDetails() {
 
+        for (int i=0; i<cartProducts.size(); i++){
 
+        }
         return "Item:" + cartProducts + "price" + totalPrice;
     }
 }

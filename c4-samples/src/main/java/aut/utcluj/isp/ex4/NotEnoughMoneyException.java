@@ -4,13 +4,13 @@ package aut.utcluj.isp.ex4;
  * @author stefan
  */
 public class NotEnoughMoneyException extends Exception {
-    private int amount;
+    private double amount;
     
-    public NotEnoughMoneyException(int amount){
+    public NotEnoughMoneyException(Double amount){
         this.amount = amount;
     }
     
-    public int getAmount(){
+    public double getAmount(){
         return amount;
     }
 }
