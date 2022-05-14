@@ -3,12 +3,13 @@ package aut.utcluj.isp.ex4;
 /**
  * @author stefan
  */
-public class Product {
+public class Product  {
     private String productId;
     private Double price;
 
     public Product(String productId, Double price) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.productId = productId;
+        this.price = price;
     }
 
     public String getProductId() {
@@ -18,4 +19,14 @@ public class Product {
     public Double getPrice() {
         return price;
     }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+
 }

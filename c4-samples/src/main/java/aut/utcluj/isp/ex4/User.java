@@ -27,6 +27,10 @@ public class User {
      */
     public void addProductToCart(Product product, int quantity) {
 
+
+
+        userCart.addProductToCart(product, quantity);
+
     }
 
     /**
@@ -36,7 +40,7 @@ public class User {
      * @param productId - unique product id
      */
     public void removeProductFromCart(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        userCart.removeProductFromCart(productId);
     }
 
     /**

@@ -1,12 +1,17 @@
 package aut.utcluj.isp.ex4;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author stefan
  */
-public class UserCart {
-    private List<Product> cardProducts;
+public class UserCart implements ICartDetails {
+    private List<Product> cartProducts ;
     private double totalPrice;
 
     public double getTotalPrice() {
@@ -14,7 +19,18 @@ public class UserCart {
     }
 
     public List<Product> getCardProducts() {
-        return cardProducts;
+        return cartProducts;
+    }
+
+    public void setCartProducts(List<Product> cartProducts) {
+        this.cartProducts = cartProducts;
+    }
+
+    public UserCart() {
+        totalPrice=0;
+        cartProducts = new ArrayList<>();
+
+        
     }
 
     /**
@@ -24,7 +40,12 @@ public class UserCart {
      * @param quantity - number of products of the same type to be added
      */
     public void addProductToCart(final Product product, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
+        for(int i=0; i < quantity ; i++){
+          cartProducts.add(product);
+          totalPrice = totalPrice+product.getPrice();
+      }
+
     }
 
     /**
@@ -35,6 +56,14 @@ public class UserCart {
      */
     public void removeProductFromCart(final String productId) {
 
+        boolean check = false;
+        for(int i = 0; i < cartProducts.size(); i++){
+            if(cartProducts.get(i).getProductId().equals(productId)){
+                cartProducts.remove(i);
+                check = true;
+            }
+        }
+
     }
 
     /**
@@ -42,6 +71,16 @@ public class UserCart {
      * Reset products and total price to default values
      */
     public void resetCart() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(cartProducts.size() != 0){
+            cartProducts.clear();
+            totalPrice = 0;
+        }
+    }
+
+    @Override
+    public String getCartDetails() {
+
+
+        return "Item:" + cartProducts + "price" + totalPrice;
     }
 }

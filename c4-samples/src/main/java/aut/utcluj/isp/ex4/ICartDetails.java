@@ -1,5 +1,7 @@
 package aut.utcluj.isp.ex4;
 
+import java.util.List;
+
 public interface ICartDetails {
     /**
      * Return cart details
