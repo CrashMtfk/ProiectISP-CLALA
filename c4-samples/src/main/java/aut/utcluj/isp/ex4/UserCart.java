@@ -34,7 +34,7 @@ public class UserCart {
      * @param productId - unique product id
      */
     public void removeProductFromCart(final String productId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
     }
 
     /**

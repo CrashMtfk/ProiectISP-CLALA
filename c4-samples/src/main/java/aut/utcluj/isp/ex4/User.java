@@ -26,7 +26,7 @@ public class User {
      * @param quantity - quantity to be added
      */
     public void addProductToCart(Product product, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
     }
 
     /**
