@@ -54,15 +54,18 @@ public class UserCart implements ICartDetails {
      *
      * @param productId - unique product id
      */
-    public void removeProductFromCart(final String productId) {
+    public void removeProductFromCart(final String productId) throws ProductNotFoundException {
 
         boolean check = false;
         for(int i = 0; i < cartProducts.size(); i++){
             if(cartProducts.get(i).getProductId().equals(productId)){
                 cartProducts.remove(i);
                 check = true;
-                //totalPrice = totalPrice - cartProducts.get(i).getPrice();
+                totalPrice = totalPrice - cartProducts.get(i).getPrice();
             }
+        }
+        if(check==false){
+            throw new ProductNotFoundException();
         }
 
     }
