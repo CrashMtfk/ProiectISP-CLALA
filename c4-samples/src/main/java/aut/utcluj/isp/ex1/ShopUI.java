@@ -10,6 +10,8 @@ package aut.utcluj.isp.ex1;
  */
 public class ShopUI extends javax.swing.JFrame {
 
+    private Shop shop;
+
     /**
      * Creates new form ShopUI
      */
@@ -44,6 +46,11 @@ public class ShopUI extends javax.swing.JFrame {
         textPortofolio1.setEditable(false);
 
         jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,6 +102,11 @@ public class ShopUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       // if(evt.getSoruce() == myButton) setTitle("My Shop");
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
